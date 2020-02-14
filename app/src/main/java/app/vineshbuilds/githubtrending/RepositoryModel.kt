@@ -4,19 +4,19 @@ import com.google.gson.annotations.SerializedName
 
 data class RepositoryModel(
     @SerializedName("name")
-    val repoName: String,
+    val repoName: String?,
     @SerializedName("avatar")
-    val avatarUrl: String,
+    val avatarUrl: String?,
     @SerializedName("author")
-    val authorName: String,
+    val authorName: String?,
     @SerializedName("description")
-    val description: String,
+    val description: String?,
     @SerializedName("language")
-    val lang: String,
+    val lang: String?,
     @SerializedName("stars")
     val stars: Int,
     @SerializedName("forks")
     val forks: Int,
     @SerializedName("languageColor")
-    val langColor: String
+    val langColor: String?
 )
