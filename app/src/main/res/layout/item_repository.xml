@@ -2,7 +2,12 @@
 <layout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data></data>
+    <data>
+
+        <variable
+            name="vm"
+            type="app.vineshbuilds.githubtrending.RepositoryVm" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -14,6 +19,7 @@
             android:id="@+id/avatar"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:src="@color/colorAccent"
             tools:src="@color/colorAccent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -34,6 +40,7 @@
                 android:ellipsize="end"
                 android:fontFamily="sans-serif"
                 android:lines="1"
+                android:text="@{vm.authorName}"
                 tools:text="Author name" />
 
             <TextView
@@ -44,6 +51,7 @@
                 android:ellipsize="end"
                 android:fontFamily="sans-serif-medium"
                 android:lines="2"
+                android:text="@{vm.repoName}"
                 tools:text="An unnecessarily loong repository name that could have been shorter" />
 
             <LinearLayout
@@ -61,6 +69,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
+                    android:text="@{vm.description}"
                     android:fontFamily="sans-serif-medium"
                     android:lines="2"
                     tools:text="A description which is neither too small nor too long." />

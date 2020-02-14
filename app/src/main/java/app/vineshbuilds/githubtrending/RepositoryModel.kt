@@ -1,7 +1,22 @@
 package app.vineshbuilds.githubtrending
 
+import com.google.gson.annotations.SerializedName
+
 data class RepositoryModel(
-    val repoName: String, val avatarUrl: String, val authorName: String,
-    val description: String, val lang: String, val stars: Int,
-    val forks: Int, val langColor: String
+    @SerializedName("name")
+    val repoName: String,
+    @SerializedName("avatar")
+    val avatarUrl: String,
+    @SerializedName("author")
+    val authorName: String,
+    @SerializedName("description")
+    val description: String,
+    @SerializedName("language")
+    val lang: String,
+    @SerializedName("stars")
+    val stars: Int,
+    @SerializedName("forks")
+    val forks: Int,
+    @SerializedName("languageColor")
+    val langColor: String
 )
