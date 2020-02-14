@@ -12,13 +12,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:background="?attr/selectableItemBackground"
-        android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:layout_height="wrap_content">
 
         <ImageView
+            android:layout_margin="16dp"
             android:id="@+id/avatar"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:src="@color/colorAccent"
             tools:src="@color/colorAccent"
             app:layout_constraintStart_toStartOf="parent"
@@ -27,7 +27,7 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_margin="16dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/avatar"
@@ -47,10 +47,11 @@
                 style="@style/TextAppearance.AppCompat.Medium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="6dp"
                 android:ellipsize="end"
                 android:fontFamily="sans-serif-medium"
-                android:lines="2"
+                android:maxLines="2"
                 android:text="@{vm.repoName}"
                 tools:text="An unnecessarily loong repository name that could have been shorter" />
 
@@ -58,7 +59,6 @@
                 android:id="@+id/expanded_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/avatar"
@@ -71,23 +71,30 @@
                     android:ellipsize="end"
                     android:text="@{vm.description}"
                     android:fontFamily="sans-serif-medium"
-                    android:lines="2"
+                    android:maxLines="2"
                     tools:text="A description which is neither too small nor too long." />
-            </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:orientation="horizontal">
 
-                <include layout="@layout/item_attribute" />
+                    <include layout="@layout/item_attribute" />
 
-                <include layout="@layout/item_attribute" />
+                    <include layout="@layout/item_attribute" />
 
-                <include layout="@layout/item_attribute" />
+                    <include layout="@layout/item_attribute" />
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
+
+        <View
+            android:background="@color/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
