@@ -1,8 +1,8 @@
-package app.vineshbuilds.githubtrending
+package app.vineshbuilds.githubtrending.ui.mainpage.models
 
 import com.google.gson.annotations.SerializedName
 
-data class RepositoryModel(
+data class GithubRepoModel(
     @SerializedName("name")
     val repoName: String?,
     @SerializedName("avatar")

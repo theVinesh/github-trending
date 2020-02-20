@@ -1,5 +1,6 @@
 package app.vineshbuilds.githubtrending
 
+import app.vineshbuilds.githubtrending.ui.mainpage.vms.MainVm
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -14,7 +15,7 @@ val applicationModule = module {
             .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-            .create(RepoService::class.java)
+            .create(GithubRepoService::class.java)
     }
 
 }
