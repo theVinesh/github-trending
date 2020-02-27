@@ -1,6 +1,7 @@
 package app.vineshbuilds.githubtrending.ui.mainpage.vms
 
 import androidx.databinding.ObservableArrayList
+import androidx.databinding.ObservableBoolean
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import app.vineshbuilds.commons.dataBinding.ViewProvider
@@ -19,11 +20,12 @@ import kotlinx.coroutines.launch
 
 @ExperimentalCoroutinesApi
 class MainVm(private val githubRepoService: GithubRepoService) : ViewModel() {
+    val isRefreshing = ObservableBoolean(false)
     val data = ObservableArrayList<ViewModel>()
     private var getRepoJob: Job? = null
 
     init {
-        getRepos()
+        refreshRepos()
     }
 
     val viewProvider = viewProvider {
@@ -40,15 +42,17 @@ class MainVm(private val githubRepoService: GithubRepoService) : ViewModel() {
     }
 
     @ExperimentalCoroutinesApi
-    fun getRepos() {
+    fun refreshRepos() {
         getRepoJob?.cancel()
         getRepoJob = viewModelScope.launch {
+            isRefreshing.set(true)
             fetch { githubRepoService.getRepos() }.collect { result ->
                 when (result) {
                     is Loading -> (0 until 25).map { LoadingVm.INSTANCE }
                     is Success -> result.data.map { GithubRepoVm(it) }
                     is Failure -> listOf(ErrorVm())
                 }.let {
+                    isRefreshing.set(false)
                     data.clear()
                     data.addAll(it)
                 }
