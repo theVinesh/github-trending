@@ -20,7 +20,8 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_margin="16dp"
-            android:src="@color/colorAccent"
+            android:src="@color/divider"
+            app:imageUrl="@{vm.avatarUrl}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@color/colorAccent" />
