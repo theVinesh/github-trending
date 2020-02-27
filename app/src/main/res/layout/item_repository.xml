@@ -60,6 +60,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                app:visibleOrGone="@{vm.expanded}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/avatar"
                 app:layout_constraintTop_toTopOf="parent">
@@ -83,16 +84,19 @@
 
                     <include
                         layout="@layout/item_attribute"
+                        app:icon="@{@drawable/circle}"
+                        app:tint="@{vm.langColor}"
                         app:text="@{vm.lang}" />
 
                     <include
                         layout="@layout/item_attribute"
-                        app:icon="@drawable/star_yellow"
+                        app:icon="@{@drawable/ic_star}"
+                        app:tint="@{@color/goldenYellow}"
                         app:text="@{vm.stars}" />
 
                     <include
                         layout="@layout/item_attribute"
-                        app:icon="@drawable/fork_black"
+                        app:icon="@{@drawable/ic_fork}"
                         app:text="@{vm.forks}" />
                 </LinearLayout>
             </LinearLayout>
